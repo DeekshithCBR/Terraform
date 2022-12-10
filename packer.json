@@ -1,0 +1,46 @@
+{
+    "_comment" : "Create a AWS AMI ith AMZ Linux 2018 with Java and Tomcat",
+    "variables": {
+      "aws_access_key": "",
+      "aws_secret_key": "",
+      "region": "",
+      "source_ami":"",
+      "instance_type":"",
+      "vpc_id": "",
+      "subnet_id": "",
+      "security_group_id": ""
+    },
+    "_comment1" : "packer build -var \"aws_secret_key=foo\" packer.json",
+    "_comment2" : "packer build -var-file packer-vars.json packer.json",
+    "builders": [{
+      "access_key": "{{user `aws_access_key`}}",
+      "secret_key": "{{user `aws_secret_key`}}",
+      "type": "amazon-ebs",
+      "region": "{{user `region`}}",
+      "source_ami": "{{user `source_ami`}}",
+      "instance_type": "{{user `instance_type`}}",
+      "ssh_username": "ec2-user",
+      "ami_name": "DeekshithApache-{{isotime | clean_resource_name}}",
+      "vpc_id": "{{user `vpc_id`}}",
+      "subnet_id": "{{user `subnet_id`}}",
+      "ssh_keypair_name":"DeekshithProject",
+      "security_group_id": "{{user `security_group_id`}}",
+      "ssh_private_key_file":"DeekshithProject.pem",
+      "associate_public_ip_address":"true",
+      "tags": {
+        "Name": "DeekshithApache-{{isotime | clean_resource_name}}"
+      }
+    }],
+    "provisioners": [{
+      "type": "shell",
+      "inline": [
+        "sleep 30",
+        "sudo yum install -y httpd",
+        "sudo systemctl start httpd",
+        "sudo systemctl enable httpd",
+        "sudo chkconfig httpd on"
+        ]
+    }
+   
+]
+  }

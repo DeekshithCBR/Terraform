@@ -139,7 +139,7 @@ resource "aws_launch_configuration" "DeekshithLConf" {
   name_prefix   = "DeekshtihLaunchConfig"
   image_id      = "ami-0bd262d791ff5d074"
   instance_type = "t2.micro"
-  key_name = "DeekshithProject"
+  key_name = "FinalProject"
   security_groups = ["${aws_security_group.allow_all.id}"]
   associate_public_ip_address = true	
 

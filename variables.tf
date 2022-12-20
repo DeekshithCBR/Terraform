@@ -19,4 +19,4 @@ variable "azs" {
 }
 variable "environment" { default = "dev" }
 variable "instance_type" {}
-variable "image_id" {}
+#variable "image_id" {}

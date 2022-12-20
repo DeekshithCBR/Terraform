@@ -5,7 +5,7 @@
     "source_ami": "ami-0b0dcb5067f052a63",
     "instance_type": "t2.micro",
     "ssh_username" : "ec2-user",
-    "vpc_id": "",
-    "subnet_id": "",
-    "security_group_id": ""
+    "vpc_id": "vpc-07ab6678d7aceafe1",
+    "subnet_id": "subnet-029f226b7b42ddfd6",
+    "security_group_id": "sg-087892c7b193cf672"
 }

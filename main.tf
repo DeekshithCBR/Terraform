@@ -137,7 +137,7 @@ resource "aws_lb_listener" "DeekshithLBListener" {
 
 resource "aws_launch_configuration" "DeekshithLConf" {
   name_prefix   = "DeekshtihLaunchConfig"
-  image_id      = "ami-0bd262d791ff5d074"
+  image_id      =  "${var.image_id}"
   instance_type = "t2.micro"
   key_name = "FinalProject"
   security_groups = ["${aws_security_group.allow_all.id}"]

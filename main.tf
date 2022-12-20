@@ -159,6 +159,7 @@ resource "aws_autoscaling_group" "DeekshithASG" {
   lifecycle {
     create_before_destroy = true
   }
+}
  resource "aws_instance" "Ansible" {
       ami = "ami-0b0dcb5067f052a63"
       availability_zone = "us-east-1a"
@@ -171,5 +172,5 @@ resource "aws_autoscaling_group" "DeekshithASG" {
            Name = "Ansible-Server"
             }
  }
-}
+
 
